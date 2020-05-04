@@ -1,5 +1,4 @@
 // handle form submit
-const express = require('express');
 const form = document.getElementById('vote-form');
 
 form.addEventListener('submit', (e) => {
