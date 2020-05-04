@@ -1,4 +1,5 @@
 // handle form submit
+const express = require('express');
 const form = document.getElementById('vote-form');
 
 form.addEventListener('submit', (e) => {
@@ -6,12 +7,12 @@ form.addEventListener('submit', (e) => {
   const data = {
     os: choice,
   };
-  let port = process.env.PORT;
-  if (port == null || port == '') {
-    port = 8000;
-  }
+  // var port = process.env.PORT;
+  // if (port == null || port == '') {
+  //   port = 8000;
+  // }
 
-  fetch(`http://localhost:${port}/poll`, {
+  fetch(`http://localhost:3000/poll`, {
     method: 'post',
     body: JSON.stringify(data),
     headers: new Headers({
@@ -25,7 +26,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
-fetch(`http://localhost:${port}/poll`)
+fetch(`http://localhost:3000/poll`)
   .then((res) => res.json())
   .then((data) => {
     // console.log(data);
