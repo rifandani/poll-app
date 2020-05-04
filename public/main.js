@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
   //   port = 8000;
   // }
 
-  fetch(`http://localhost:3000/poll`, {
+  fetch(`http://localhost:8000/poll`, {
     method: 'post',
     body: JSON.stringify(data),
     headers: new Headers({
@@ -25,7 +25,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
-fetch(`http://localhost:3000/poll`)
+fetch(`http://localhost:8000/poll`)
   .then((res) => res.json())
   .then((data) => {
     // console.log(data);

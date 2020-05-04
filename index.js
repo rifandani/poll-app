@@ -29,7 +29,7 @@ app.use(cors());
 app.use('/poll', poll);
 
 // start server
-const port = 3000;
+const port = 8000;
 // let port = process.env.PORT;
 // if (port == null || port == '') {
 //   port = 8000;
