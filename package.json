@@ -1,0 +1,32 @@
+{
+  "name": "poll-app",
+  "version": "1.0.0",
+  "description": "real-time polling app using nodejs",
+  "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "poll-app",
+    "heroku",
+    "pusher",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Tri Rizeki Rifandani",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10",
+    "pusher": "^3.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
