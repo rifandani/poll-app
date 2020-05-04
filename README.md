@@ -4,14 +4,18 @@
 
 > Membangun Real-Time Polling Application berbasis Express, Pusher, dan MongoDB
 
-### Prerequisites
+## Demo
+
+Demo aplikasi dapat diakses dengan link berikut: [Poll Application](https://pusher-polling-app.herokuapp.com/)
+
+## Prerequisites
 
 Prasyaratnya yaitu:
 
 - Download dan Install NodeJS
 - Download dan Install NPM
 
-### Installation
+## Installation
 
 ```
 # clone repo
@@ -29,7 +33,6 @@ $ npm install
 ```
 # jalankan aplikasi mode development dengan package nodemon
 $ npm run dev
-
 ```
 
 Lalu, buka localhost di browser anda.
