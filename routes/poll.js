@@ -14,7 +14,7 @@ var pusher = new Pusher({
   encrypted: true,
 });
 
-// ketika ada yg GET request localhost/poll , maka akan mengirimkan POLL
+// ketika ada yg GET request localhost/poll , maka akan mencari semua data dari model Vote kemudian memberikan response JSON
 router.get('/', (req, res) => {
   Vote.find().then((votes) => {
     res.json({
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// ketika ada yg POST request ke localhost/poll , maka
+// ketika ada yg POST request ke localhost/poll , maka akan menyimpan hasil form ke model Vote dengan isi data dari newVote
 router.post('/', (req, res) => {
   // saving to MongoDB
   const newVote = {

@@ -3,63 +3,196 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Simple Polling App using ExpressJS, Pusher, and MongoDB "
+    />
+    <meta name="author" content="Tri Rizeki Rifandani" />
     <title>Real Time Pusher Polling App</title>
 
+    <!--     Fonts and icons     -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+    />
+    <!-- CSS -->
+    <link href="css/material-kit.css?v=2.0.7" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
     />
   </head>
-  <body>
-    <div class="container-fluid">
-      <div class="card mb-4 mt-4">
-        <h3 class="card-header text-center">
-          Real Time Polling App <br />Using NodeJS, Pusher and MongoDB
-        </h3>
-
-        <div class="card-body">
-          <h6 class="card-title mb-4">Vote for your favorite OS:</h6>
-          <form id="vote-form">
-            <p>
-              <input type="radio" name="os" id="windows" value="Windows" />
-              <label for="windows">Windows OS</label>
-            </p>
-            <p>
-              <input type="radio" name="os" id="macos" value="MacOS" />
-              <label for="macos">Mac OS</label>
-            </p>
-            <p>
-              <input type="radio" name="os" id="linux" value="Linux" />
-              <label for="linux">Linux Distro</label>
-            </p>
-            <p>
-              <input type="radio" name="os" id="other" value="Other" />
-              <label for="other">Others</label>
-            </p>
-            <input type="submit" value="Vote" class="btn btn-primary" />
-          </form>
+  <body class="profile-page sidebar-collapse">
+    <nav
+      class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
+      color-on-scroll="20"
+      id="sectionsNav"
+    >
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand" href="#">
+            <img src="images/logohub.png" style="width: 150px;" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="material-icons">home</i> Home
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div
-        class="container-fluid"
-        id="chartContainer"
-        style="height: 350px; width: 100%;"
-      ></div>
+    <div
+      class="page-header header-filter"
+      data-parallax="true"
+      style="background-image: url('https://i.ibb.co/vX7FnV8/nature.jpg');"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="brand">
+              <h1 class="title text-white text-center">Polling App</h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
+    <div class="main main-raised">
+      <div class="profile-content">
+        <div class="container">
+          <div class="description text-center tab-space">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center mt-3">
+                  <h4
+                    class="card-header text-center mb-4 badge-info border-light"
+                  >
+                    <i class="material-icons">where_to_vote</i> Vote for your
+                    favorite OS:
+                  </h4>
+
+                  <form id="vote-form">
+                    <p class="text-left">
+                      <input
+                        type="radio"
+                        name="os"
+                        id="windows"
+                        value="Windows"
+                      />
+                      <label for="windows">Windows OS</label>
+                    </p>
+                    <p class="text-left">
+                      <input type="radio" name="os" id="macos" value="MacOS" />
+                      <label for="macos">Mac OS</label>
+                    </p>
+                    <p class="text-left">
+                      <input type="radio" name="os" id="linux" value="Linux" />
+                      <label for="linux">Linux Distro</label>
+                    </p>
+                    <p class="text-left">
+                      <input type="radio" name="os" id="other" value="Other" />
+                      <label for="other">Others</label>
+                    </p>
+                    <input type="submit" value="Vote" class="btn btn-primary" />
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="container-fluid"
+              id="chartContainer"
+              style="height: 350px; width: 100%;"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer footer-default">
+      <div class="container">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="https://www.rifandani.educationhost.cloud/">
+                Laravel Projects
+              </a>
+            </li>
+            <li>
+              <a href="https://agile-island-52063.herokuapp.com/">
+                Weather Finder
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          by
+          <a href="https://www.rifandani.github.io/" target="_blank"
+            >Rifandani</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!--   Core JS Files   -->
+    <script src="js/core/jquery.min.js"></script>
+    <script src="js/core/popper.min.js"></script>
+    <script src="js/core/bootstrap-material-design.min.js"></script>
+    <script src="js/plugins/moment.min.js"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="js/plugins/bootstrap-datetimepicker.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="js/plugins/nouislider.min.js"></script>
+    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+    <script src="js/material-kit.js"></script>
+
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
